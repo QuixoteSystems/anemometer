@@ -16,6 +16,9 @@ if __name__ == "__main__":
 
     count = 0
 
+    """
+    Anulamos la lectura continua para que eso lo realice crontab
+
     ## Muestro constantemente los datos recopilados para probar, calibrar o debug
     while True:
         try:
@@ -30,3 +33,7 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             anemometer.stop_read()
             sys.exit(0)
+
+    """
+    # Ejecutamos una vez la lectura
+    anemometer.debug()
