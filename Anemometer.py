@@ -318,4 +318,4 @@ class Anemometer():
         #print('Viento mínimo:', self.wind_min)
         #print('Viento máximo:', self.wind_max)
         time.sleep(5)
-        f.close()
+        #f.close()
