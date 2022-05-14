@@ -151,7 +151,7 @@ class Anemometer():
         self.old_s_time = self.s_time
         self.s_time = time.time()
 
-       
+        # Pasalos los m/s a km/h
         velocidad = velocidad * 3.6
         return velocidad
 
@@ -308,11 +308,14 @@ class Anemometer():
         Función para depurar funcionamiento del modelo proyectando datos por
         consola.
         """
-        print('Pulsos Totales:', self.pulsos_totales)
-        print('Pulsos en esta medición:', self.old_pulsos)
-        print('Tiempo recopilando pulsos:', self.old_time_diff)
-        print('Metros por segundos:', self.wind_speed)
-        print('Media de todas las capturas:', self.wind_average)
-        print('Viento mínimo:', self.wind_min)
-        print('Viento máximo:', self.wind_max)
+        # Comentado para no llenar LOG
+        #print('Pulsos Totales:', self.pulsos_totales)
+        #print('Pulsos en esta medición:', self.old_pulsos)
+        #print('Tiempo recopilando pulsos:', self.old_time_diff)
+        print('Velocidad (km/h):', self.wind_speed)
+        f.write("velocidad "+ self.wind_speed + "\n")
+        #print('Media de todas las capturas:', self.wind_average)
+        #print('Viento mínimo:', self.wind_min)
+        #print('Viento máximo:', self.wind_max)
         time.sleep(5)
+        f.close()
