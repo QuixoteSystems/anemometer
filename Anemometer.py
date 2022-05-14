@@ -6,10 +6,6 @@ import RPi.GPIO as GPIO
 from _thread import start_new_thread
 
 
-# Abrimos archivo donde escribiremos los datos
-f = open ('/var/lib/prometheus/node-exporter/wind.prom','w')
-
-
 
 class Anemometer():
     """
@@ -308,6 +304,10 @@ class Anemometer():
         Función para depurar funcionamiento del modelo proyectando datos por
         consola.
         """
+        # Abrimos archivo donde escribiremos los datos
+        f = open ('/var/lib/prometheus/node-exporter/wind.prom','w')
+        #f.write('hola mundo')
+        #f.close()
         # Comentado para no llenar LOG
         #print('Pulsos Totales:', self.pulsos_totales)
         #print('Pulsos en esta medición:', self.old_pulsos)
@@ -318,4 +318,4 @@ class Anemometer():
         #print('Viento mínimo:', self.wind_min)
         #print('Viento máximo:', self.wind_max)
         time.sleep(5)
-        #f.close()
+        f.close()
