@@ -5,6 +5,12 @@ import math
 import RPi.GPIO as GPIO
 from _thread import start_new_thread
 
+
+# Abrimos archivo donde escribiremos los datos
+f = open ('/var/lib/prometheus/node-exporter/wind.prom','w')
+
+
+
 class Anemometer():
     """
     Esta clase representa un sensor que envia pulsos digitales a un pin GPIO
@@ -145,8 +151,8 @@ class Anemometer():
         self.old_s_time = self.s_time
         self.s_time = time.time()
 
-        #velocidad en km/h multiplicamos por 3.6
-        velocidad = velocidad + 3.6
+       
+        velocidad = velocidad * 3.6
         return velocidad
 
     def generate_wind(self):
