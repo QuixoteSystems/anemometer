@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-import time
 
-import RPi.GPIO as GPIO
-import math
 import time
+import math
+import RPi.GPIO as GPIO
 from _thread import start_new_thread
 
 class Anemometer():
     """
-    Esta clase representa un sensor que envía pulsos digitales a un pin GPIO
+    Esta clase representa un sensor que envia pulsos digitales a un pin GPIO
     conociendo de esta forma las vueltas completas que realiza.
 
-    Mediante el método generateWind() se actualizarán los valores de la clase
+    Mediante el metodo generateWind() se actualizaran los valores de la clase
     calculando y limpiándolos.
     De esta forma queda el modelo para el anemómetro separado de las peticiones
     en tiempo pudiendo pedirse cada una en intervalos distintos se calculará
-    siempre la direncia de tiempo dinámicamente.
+    siempre la direncia de tiempo dinamicamente.
 
-    La clase quedará siempre tomando datos y se podrán calcular en cualquier
+    La clase quedara siempre tomando datos y se podrán calcular en cualquier
     momento usando para ello los datos recopilados desde la última vez.
     """
 
@@ -146,6 +145,8 @@ class Anemometer():
         self.old_s_time = self.s_time
         self.s_time = time.time()
 
+        #velocidad en km/h multiplicamos por 3.6
+        velocidad = velocidad + 3.6
         return velocidad
 
     def generate_wind(self):
