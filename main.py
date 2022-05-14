@@ -18,6 +18,7 @@ if __name__ == "__main__":
 
     """
     Anulamos la lectura continua para que eso lo realice crontab
+    """
 
     ## Muestro constantemente los datos recopilados para probar, calibrar o debug
     while True:
@@ -34,6 +35,6 @@ if __name__ == "__main__":
             anemometer.stop_read()
             sys.exit(0)
 
-    """
+    
     # Ejecutamos una vez la lectura
-    anemometer.debug()
+    #anemometer.debug()

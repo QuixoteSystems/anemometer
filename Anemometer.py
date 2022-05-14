@@ -317,5 +317,5 @@ class Anemometer():
         #print('Media de todas las capturas:', self.wind_average)
         #print('Viento mínimo:', self.wind_min)
         #print('Viento máximo:', self.wind_max)
-        #time.sleep(5)
+        time.sleep(5)
         f.close()
