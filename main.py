@@ -28,7 +28,8 @@ if __name__ == "__main__":
             count += 1
             #print('Contador:', count)
             if (count % 5) == 0:
-                print(anemometer.get_all_datas())
+                #print(anemometer.get_all_datas())
+                anemometer.debug()
             else:
                 anemometer.debug()
         except KeyboardInterrupt:

@@ -1,15 +1,19 @@
 import adafruit_dht
 import time
-from board import *
+import board
+
 
 # GPIO17
-SENSOR_PIN17 = D17
+#SENSOR_PIN17 = D17
 
 # GPIO21
-SENSOR_PIN21 = D21
+#SENSOR_PIN21 = D21
 
-dht22int = adafruit_dht.DHT22(SENSOR_PIN17, use_pulseio=False)
-dht22ext = adafruit_dht.DHT22(SENSOR_PIN21, use_pulseio=False)
+#dht22int = adafruit_dht.DHT22(SENSOR_PIN17, use_pulseio=False)
+#dht22ext = adafruit_dht.DHT22(SENSOR_PIN21, use_pulseio=False)
+
+dht22int = adafruit_dht.DHT22(board.D17)
+dht22ext = adafruit_dht.DHT22(board.D21)
 
 temperatureInt = dht22int.temperature
 humidityInt = dht22int.humidity
@@ -35,7 +39,7 @@ print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S")
 #print(f"------------------")
 
 tempint = "{:.2f}".format(temperatureInt)
-print(f"Temperatura= " + tempint + " C")
+print(f"Temperatura Interior= " + tempint + " C")
 # alternativa de impresion de la temperatura
 #tempint = "{:.2f}".format(temperatureInt)
 f.write("interior_temp "+ tempint + "\n")
@@ -51,7 +55,7 @@ f.write("interior_hum "+ humint + "\n")
 #print(f"------------------")
 
 tempext = "{:.2f}".format(temperatureExt)
-#print(f"Temperatura= " + tempext + " C")
+print(f"Temperatura Exterior= " + tempext + " C")
 f.write("exterior_temp "+ tempext + "\n")
 
 humext = "{:.2f}".format(humidityExt)
