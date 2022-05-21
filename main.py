@@ -26,7 +26,7 @@ if __name__ == "__main__":
             ## Cuando ha tomado 5 lecturas devuelve y resetea contadores
             ## para indicar que comienza una nueva medición.
             count += 1
-            print('Contador:', count)
+            #print('Contador:', count)
             if (count % 5) == 0:
                 print(anemometer.get_all_datas())
             else:
