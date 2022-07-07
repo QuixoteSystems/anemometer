@@ -79,7 +79,10 @@ class Anemometer():
         self.pulsos_por_vuelta = pulsos_vuelta
         self.s_mediciones = s_mediciones
         self.killed = False
-        self.connect()
+        try:
+            self.connect()
+        except:
+            raise
 
     def connect(self):
         """
@@ -100,7 +103,7 @@ class Anemometer():
         """
         pass
 
-    def sumar_pulso(self, pin):
+    def sumar_pulso(self):
         """
         Aumenta el contador de pulsos recibidos por el anemómetro.
         """
