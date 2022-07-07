@@ -8,7 +8,7 @@ from termometer import Termometer
 
 if __name__ == "__main__":
     anemometer = Anemometer()
-    temometer = Termometer()
+    termometer = Termometer()
 
     ## Inicio lecturas de datos de anemometro y termometros
     anemometer.start_read()
