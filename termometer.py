@@ -28,8 +28,8 @@ class Termometer():
         dht22ext = adafruit_dht.DHT22(board.D21)
         temperature_ext = dht22ext.temperature
         humidity_ext = dht22ext.humidity
-    except RuntimeError as dht_ext_error:
-        print(f"Error del Sensor Exterior: {dht_ext_error}")
+    except RuntimeError as dht_error:
+        print(f"Error del Sensor Exterior: {dht_error}")
 
     def __init__(self):
 
@@ -53,28 +53,28 @@ class Termometer():
 
         try:
             temp_int = "{:.2f}".format(self.temperature_int)
-            f.write("interior_temp "+ temp_int + "\n")
+            f.write(f"interior_temp {temp_int} \n")
 
-            print(f"Temperatura Interior= " + temp_int + " C")
+            print(f"Temperatura Interior= {temp_int} C")
 
             hum_int = "{:.2f}".format(self.humidity_int)
-            f.write("interior_hum "+ hum_int + "\n")
+            f.write(f"interior_hum {hum_int} \n")
 
-            print(f"Humedad Interior= "+ hum_int +" %")
+            print(f"Humedad Interior= {hum_int} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
 
         try:
             temp_ext = "{:.2f}".format(self.temperature_ext)
-            f.write("exterior_temp "+ temp_ext + "\n")
+            f.write(f"exterior_temp {temp_ext} \n")
 
-            print(f"Temperatura Exterior= " + temp_ext + " C")
+            print(f"Temperatura Exterior= {temp_ext} C")
 
             hum_ext = "{:.2f}".format(self.humidity_ext)
-            f.write("exterior_hum "+ hum_ext + "\n")
+            f.write(f"exterior_hum {hum_ext} \n")
 
-            print(f"Humedad= "+ hum_ext +" %")
+            print(f"Humedad Exterior= {hum_ext} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
