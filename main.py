@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     ## Espera de 3 segundos recopilando los primeros datos
     time.sleep(3)
-
     count = 0
 
     """
@@ -26,6 +25,8 @@ if __name__ == "__main__":
     ## Muestro constantemente los datos recopilados para probar, calibrar o debug
     while True:
         try:
+            anemometer.start_read()
+            termometer.start_read()
             ## Cuando ha tomado 5 lecturas devuelve y resetea contadores
             ## para indicar que comienza una nueva medición.
             count += 1
