@@ -81,8 +81,8 @@ class Anemometer():
         self.killed = False
         try:
             self.connect()
-        except:
-            raise
+        except ValueError as sensor_error:
+            print(f"Sin sensor anemometro. Error: {sensor_error}")
 
     def connect(self):
         """
