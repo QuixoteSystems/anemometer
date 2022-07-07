@@ -17,12 +17,15 @@ class Termometer():
     La clase quedara siempre tomando datos y se podrán calcular en cualquier
     momento usando para ello los datos recopilados desde la última vez.
     """
-    dht22int = adafruit_dht.DHT22(board.D17)
-    dht22ext = adafruit_dht.DHT22(board.D21)
-    temperature_int = dht22int.temperature
-    humidity_int = dht22int.humidity
-    temperature_ext = dht22ext.temperature
-    humidity_ext = dht22ext.humidity
+    try:
+        dht22int = adafruit_dht.DHT22(board.D17)
+        dht22ext = adafruit_dht.DHT22(board.D21)
+        temperature_int = dht22int.temperature
+        humidity_int = dht22int.humidity
+        temperature_ext = dht22ext.temperature
+        humidity_ext = dht22ext.humidity
+    except RuntimeError as dht_error:
+        print(f"Error del Sensor: {dht_error}")
 
     def __init__(self, dht22int, dht22ext):
         self.dht22int = dht22int
