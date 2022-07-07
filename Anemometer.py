@@ -80,11 +80,8 @@ class Anemometer():
         self.pulsos_por_vuelta = pulsos_vuelta
         self.s_mediciones = s_mediciones
         self.killed = False
-        
-        try:
-            self.connect()
-        except ValueError as sensor_error:
-            print(f"Sin sensor anemometro. Error: {sensor_error}")
+
+        self.connect()
 
     def connect(self):
         """
