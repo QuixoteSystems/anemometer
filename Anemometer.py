@@ -229,7 +229,8 @@ class Anemometer():
             Esta función actualiza las estadísticas de las lecturas cada
             cierto tiempo en bucle.
             """
-            #while True:
+            # Se quita el while porque se realiza directamente en el main.py
+            #while True: 
                 ## Si se ha marcado para detener lecturas, se aborta hilo.
             if self.killed:
                 raise SystemExit

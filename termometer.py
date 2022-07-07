@@ -48,7 +48,7 @@ class Termometer():
         #si queremos que muestre esto cada 5 segundos descomentar el while y el time.sleep
 
 #print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
-        f.write("Fecha y Hora" + fecha_hora)
+        #f.write("Fecha y Hora" + fecha_hora)
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
 
         try:
