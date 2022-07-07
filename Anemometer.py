@@ -86,10 +86,13 @@ class Anemometer():
         Inicializa la conexión con el sensor escuchando pulsos y asignando
         eventos para detectarlos.
         """
-        GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(self.PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        GPIO.add_event_detect(self.PIN, GPIO.RISING, callback=self.sumar_pulso,
+        try:
+            GPIO.setmode(GPIO.BOARD)
+            GPIO.setup(self.PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+            GPIO.add_event_detect(self.PIN, GPIO.RISING, callback=self.sumar_pulso,
                               bouncetime=5)
+        except ValueError as sensor_error:
+            print(f"Sin sensor anemometro. Error: {sensor_error}")
 
     def disconnect(self):
         """
