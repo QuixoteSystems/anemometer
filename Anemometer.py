@@ -74,12 +74,13 @@ class Anemometer():
     s_mediciones = 5
 
     def __init__(self, pin=7, RADIO = 9, pulsos_vuelta=2, s_mediciones=5):
-        self.PIN = pin
-        self.RADIO = RADIO
-        self.pulsos_por_vuelta = pulsos_vuelta
-        self.s_mediciones = s_mediciones
-        self.killed = False
         try:
+            self.PIN = pin
+            self.RADIO = RADIO
+            self.pulsos_por_vuelta = pulsos_vuelta
+            self.s_mediciones = s_mediciones
+            self.killed = False
+        
             self.connect()
         except ValueError as sensor_error:
             print(f"Sin sensor anemometro. Error: {sensor_error}")
