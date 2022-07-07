@@ -28,8 +28,8 @@ class Termometer():
         dht22ext = adafruit_dht.DHT22(board.D21)
         temperature_ext = dht22ext.temperature
         humidity_ext = dht22ext.humidity
-    except RuntimeError as dht_error:
-        print(f"Error del Sensor Exterior: {dht_error}")
+    except RuntimeError as dht_ext_error:
+        print(f"Error del Sensor Exterior: {dht_ext_error}")
 
     def __init__(self):
 
