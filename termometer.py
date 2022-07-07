@@ -24,7 +24,7 @@ class Termometer():
     temperature_ext = dht22ext.temperature
     humidity_ext = dht22ext.humidity
 
-    def __init__(self, dht22int, dht22ext ):
+    def __init__(self, dht22int, dht22ext):
         self.dht22int = dht22int
         self.dht22ext = dht22ext
         self.temperature_int = dht22int.temperature
@@ -33,7 +33,7 @@ class Termometer():
         self.humidity_ext = dht22ext.humidity
 
 
-    def get_data(self):
+    def start_read(self):
 
         fecha_hora = time.strftime("%c")
 

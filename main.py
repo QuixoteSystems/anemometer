@@ -3,16 +3,16 @@
 import sys
 import time
 
-from Anemometer import Anemometer
-import temperature
+from anemometer import Anemometer
+from termometer import Termometer
 
 if __name__ == "__main__":
     anemometer = Anemometer()
     temometer = Termometer()
-    
+
     ## Inicio lecturas de datos de anemometro y termometros
     anemometer.start_read()
-
+    
 
     ## Espera de 3 segundos recopilando los primeros datos
     time.sleep(3)
