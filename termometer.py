@@ -57,38 +57,37 @@ class Termometer():
             temp_int = "{:.2f}".format(self.temperature_int)
             f.write("interior_temp "+ temp_int + "\n")
 
+            print(f"Temperatura Interior= " + temp_int + " C")
+
             hum_int = "{:.2f}".format(self.humidity_int)
             f.write("interior_hum "+ hum_int + "\n")
+
+            print(f"Humedad Interior= "+ hum_int +" %")
+
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
 
-#print(f"Temperatura Interior= " + tempint + " C")
-# alternativa de impresion de la temperatura
-#tempint = "{:.2f}".format(temperatureInt)
 
-#print(f"Humedad= "+ humint +" %")
-#print(f"Humedad= "+ humint +" %")
-
-
-#print(f"                  ")
-#print(f"------------------")
-#print(f" Sensor Exterior")
-#print(f"------------------")
         try:
             temp_ext = "{:.2f}".format(self.temperature_ext)
             f.write("exterior_temp "+ temp_ext + "\n")
 
+            print(f"Temperatura Exterior= " + tem_pext + " C")
+
             hum_ext = "{:.2f}".format(self.humidity_ext)
             f.write("exterior_hum "+ hum_ext + "\n")
+
+            print(f"Humedad= "+ hum_ext +" %")
+
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
-        #print(f"Temperatura Exterior= " + tempext + " C")
+        
 
-        #print(f"Humedad= "+ humext +" %")
+        # Cerramos el archivo
         f.close()
 
 #print(f"------------------")
 #print(f"                  ")
         #time.sleep(5)
-# Cerramos el archivo
+
 
