@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     ## Inicio lecturas de datos de anemometro y termometros
     anemometer.start_read()
-    
+    termometer.start_read()
 
     ## Espera de 3 segundos recopilando los primeros datos
     time.sleep(3)
