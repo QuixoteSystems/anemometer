@@ -46,13 +46,11 @@ class Termometer():
         #f.close()
 
         #si queremos que muestre esto cada 5 segundos descomentar el while y el time.sleep
-#print(f"                  ")
+
 #print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
         f.write("Fecha y Hora" + fecha_hora)
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
-#print(f"------------------")
-#print(f" Sensor Interior")
-#print(f"------------------")
+
         try:
             temp_int = "{:.2f}".format(self.temperature_int)
             f.write("interior_temp "+ temp_int + "\n")
@@ -67,7 +65,6 @@ class Termometer():
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
 
-
         try:
             temp_ext = "{:.2f}".format(self.temperature_ext)
             f.write("exterior_temp "+ temp_ext + "\n")
@@ -81,7 +78,6 @@ class Termometer():
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
-        
 
         # Cerramos el archivo
         f.close()
