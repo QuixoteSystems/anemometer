@@ -63,7 +63,7 @@ class Termometer():
             print(f"Humedad Interior= {hum_int} %")
 
         except AttributeError as dht_error:
-            print(f"Error del Sensor Exterior: {dht_error}")
+            print(f"Error del Sensor Interior: {dht_error}")
 
         try:
             temp_ext = "{:.2f}".format(self.temperature_ext)
