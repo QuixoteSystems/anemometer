@@ -72,7 +72,7 @@ class Termometer():
             temp_ext = "{:.2f}".format(self.temperature_ext)
             f.write("exterior_temp "+ temp_ext + "\n")
 
-            print(f"Temperatura Exterior= " + tem_pext + " C")
+            print(f"Temperatura Exterior= " + temp_ext + " C")
 
             hum_ext = "{:.2f}".format(self.humidity_ext)
             f.write("exterior_hum "+ hum_ext + "\n")
