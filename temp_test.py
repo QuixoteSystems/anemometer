@@ -40,25 +40,23 @@ print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S")
 
 tempint = "{:.2f}".format(temperature_int)
 print(f"Temperatura Interior= " + tempint + " C")
-# alternativa de impresion de la temperatura
-#tempint = "{:.2f}".format(temperatureInt)
+
 f.write("interior_temp "+ tempint + "\n")
 
 humint = "{:.2f}".format(humidity_int)
-#print(f"Humedad= "+ humint +" %")
-#print(f"Humedad= "+ humint +" %")
+print(f"Humedad Interior= "+ humint +" %")
+
 f.write("interior_hum "+ humint + "\n")
 
 tempext = "{:.2f}".format(temperature_ext)
-print(f"Temperatura Interior= " + tempext + " C")
-# alternativa de impresion de la temperatura
-#tempint = "{:.2f}".format(temperatureInt)
-f.write("interior_temp "+ tempext + "\n")
+print(f"Temperatura Exterior= " + tempext + " C")
+
+f.write("exterior_temp "+ tempext + "\n")
 
 humext = "{:.2f}".format(humidity_ext)
-#print(f"Humedad= "+ humint +" %")
-#print(f"Humedad= "+ humint +" %")
-f.write("interior_hum "+ humext + "\n")
+print(f"Humedad Exterior= "+ humext +" %")
+
+f.write("exterior_hum "+ humext + "\n")
 
 #       time.sleep(5)
 # Cerramos el archivo
