@@ -24,40 +24,41 @@ humidity_ext = dht22ext.humidity
 fechaHora = time.strftime("%c")
 
 # Abrimos archivo donde escribiremos los datos
-f = open ('/var/lib/prometheus/node-exporter/datos.prom','w')
-#f.write('hola mundo')
-#f.close()
+#f = open ('/var/lib/prometheus/node-exporter/datos.prom','w')
+with open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8') as f:
 
 #si queremos que muestre esto cada 5 segundos descomentar el while y el time.sleep
 #while True:
-print(f"                  ")
-print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
+
         #print("Fecha y Hora" + fechaHora)
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
 #print(f"------------------")
 #print(f" Sensor Interior")
 #print(f"------------------")
-while True:
-        tempint = "{:.2f}".format(temperature_int)
-        print(f"Temperatura Interior= " + tempint + " C")
+        while True:
+                print(f"                  ")
+                print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
+                
+                tempint = "{:.2f}".format(temperature_int)
+                print(f"Temperatura Interior= " + tempint + " C")
 
-        f.write("interior_temp "+ tempint + "\n")
+                f.write("interior_temp "+ tempint + "\n")
 
-        humint = "{:.2f}".format(humidity_int)
-        print(f"Humedad Interior= "+ humint +" %")
+                humint = "{:.2f}".format(humidity_int)
+                print(f"Humedad Interior= "+ humint +" %")
 
-        f.write("interior_hum "+ humint + "\n")
+                f.write("interior_hum "+ humint + "\n")
 
-        tempext = "{:.2f}".format(temperature_ext)
-        print(f"Temperatura Exterior= " + tempext + " C")
+                tempext = "{:.2f}".format(temperature_ext)
+                print(f"Temperatura Exterior= " + tempext + " C")
 
-        f.write("exterior_temp "+ tempext + "\n")
+                f.write("exterior_temp "+ tempext + "\n")
 
-        humext = "{:.2f}".format(humidity_ext)
-        print(f"Humedad Exterior= "+ humext +" %")
+                humext = "{:.2f}".format(humidity_ext)
+                print(f"Humedad Exterior= "+ humext +" %")
 
-        f.write("exterior_hum "+ humext + "\n")
+                f.write("exterior_hum "+ humext + "\n")
 
-        time.sleep(10)
+                time.sleep(30)
 # Cerramos el archivo
-        f.close()
+#f.close()
