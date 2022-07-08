@@ -39,7 +39,7 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             anemometer.stop_read()
             sys.exit(0)
-
+        time.sleep(5)
     
     # Ejecutamos una vez la lectura
     #anemometer.debug()
