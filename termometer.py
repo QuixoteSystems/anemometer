@@ -53,12 +53,12 @@ class Termometer():
 
         try:
             temp_int = "{:.2f}".format(self.temperature_int)
-            f.write(f"interior_temp {temp_int} \n")
+            f.write(f"interior_temp {temp_int}\n")
 
             #print(f"Temperatura Interior= {temp_int} C")
 
             hum_int = "{:.2f}".format(self.humidity_int)
-            f.write(f"interior_hum {hum_int} \n")
+            f.write(f"interior_hum {hum_int}\n")
 
             #print(f"Humedad Interior= {hum_int} %")
 
@@ -67,12 +67,12 @@ class Termometer():
 
         try:
             temp_ext = "{:.2f}".format(self.temperature_ext)
-            f.write(f"exterior_temp {temp_ext} \n")
+            f.write(f"exterior_temp {temp_ext}\n")
 
             #print(f"Temperatura Exterior= {temp_ext} C")
 
             hum_ext = "{:.2f}".format(self.humidity_ext)
-            f.write(f"exterior_hum {hum_ext} \n")
+            f.write(f"exterior_hum {hum_ext}\n")
 
             #print(f"Humedad Exterior= {hum_ext} %")
 
