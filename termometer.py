@@ -55,12 +55,12 @@ class Termometer():
             temp_int = "{:.2f}".format(self.temperature_int)
             f.write(f"interior_temp {temp_int}\n")
 
-            #print(f"Temperatura Interior= {temp_int} C")
+            print(f"Temperatura Interior= {temp_int} C")
 
             hum_int = "{:.2f}".format(self.humidity_int)
             f.write(f"interior_hum {hum_int}\n")
 
-            #print(f"Humedad Interior= {hum_int} %")
+            print(f"Humedad Interior= {hum_int} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
@@ -69,12 +69,12 @@ class Termometer():
             temp_ext = "{:.2f}".format(self.temperature_ext)
             f.write(f"exterior_temp {temp_ext}\n")
 
-            #print(f"Temperatura Exterior= {temp_ext} C")
+            print(f"Temperatura Exterior= {temp_ext} C")
 
             hum_ext = "{:.2f}".format(self.humidity_ext)
             f.write(f"exterior_hum {hum_ext}\n")
 
-            #print(f"Humedad Exterior= {hum_ext} %")
+            print(f"Humedad Exterior= {hum_ext} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
