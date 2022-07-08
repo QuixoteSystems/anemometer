@@ -322,7 +322,7 @@ class Anemometer():
         #print('Pulsos Totales:', self.pulsos_totales)
         #print('Pulsos en esta medición:', self.old_pulsos)
         #print('Tiempo recopilando pulsos:', self.old_time_diff)
-        print('Velocidad (km/h):', self.wind_speed)
+        #print('Velocidad (km/h):', self.wind_speed)
         
         #f.write("velocidad "+ str(self.wind_speed) + "\n")
         #print('Media de todas las capturas:', self.wind_average)
