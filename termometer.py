@@ -43,7 +43,7 @@ class Termometer():
         print(f"\n{fecha_hora}")
 
         # Abrimos archivo donde escribiremos los datos
-        data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w')
+        data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
         #f.write('hola mundo')
         #f.close()
 
