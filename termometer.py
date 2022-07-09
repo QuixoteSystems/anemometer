@@ -40,7 +40,7 @@ class Termometer():
 
         fecha_hora = time.strftime("%c")
 
-        print(fecha_hora)
+        print(f"\n{fecha_hora}")
 
         # Abrimos archivo donde escribiremos los datos
         data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w')
