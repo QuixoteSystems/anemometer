@@ -19,31 +19,33 @@ class Termometer():
     """
     try:
         dht22int = adafruit_dht.DHT22(board.D17)
-        temperature_int = dht22int.temperature
-        humidity_int = dht22int.humidity
+        #temperature_int = dht22int.temperature
+        #humidity_int = dht22int.humidity
 
     except RuntimeError as dht_error:
         print(f"Error de Conexion Sensor Interior: {dht_error}")
     try:
         dht22ext = adafruit_dht.DHT22(board.D21)
-        temperature_ext = dht22ext.temperature
-        humidity_ext = dht22ext.humidity
+        #temperature_ext = dht22ext.temperature
+        #humidity_ext = dht22ext.humidity
     except RuntimeError as dht_error:
         print(f"Error de Conexion Sensor Exterior: {dht_error}")
+        #self.start_read(self.dht22int, self.dht22ext)
 
-    def __init__(self):
-
-        self.start_read(self.dht22int, self.dht22ext)
-
-
-    def start_read(self, dht22int, dht22ext):
-
-        fecha_hora = time.strftime("%c")
+    def __init__(self, dht22int, dht22ext):
+        #dht22int = adafruit_dht.DHT22(board.D17)
+        self.dht22ext = dht22ext
+        self.dht22int = dht22int
+        
         self.temperature_int = dht22int.temperature
         self.humidity_int = dht22int.humidity
 
         self.temperature_ext = dht22ext.temperature
         self.humidity_ext = dht22ext.humidity
+
+    def start_read(self):
+
+        fecha_hora = time.strftime("%c")
 
         print(f"\n{fecha_hora}")
 
