@@ -75,6 +75,8 @@ class Termometer():
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
+        except RuntimeError as dht_error:
+            print(f"Error del Sensor Interior: {dht_error}")
 
         try:
             temp_ext = "{:.2f}".format(temperature_ext)
@@ -89,6 +91,8 @@ class Termometer():
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
+        except RuntimeError as dht_error:
+            print(f"Error del Sensor Exterior {dht_error}")
 
         # Cerramos el archivo
         data_file.close()
