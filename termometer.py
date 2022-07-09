@@ -17,34 +17,35 @@ class Termometer():
     La clase quedara siempre tomando datos y se podrán calcular en cualquier
     momento usando para ello los datos recopilados desde la última vez.
     """
-    
+
 
     def __init__(self):
         try:
-            dht22int = adafruit_dht.DHT22(board.D17)
+            self.sensor_interior = adafruit_dht.DHT22(board.D17)
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
 
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Interior: {dht_error}")
         try:
-            dht22ext = adafruit_dht.DHT22(board.D21)
+            self.sensor_exterior = adafruit_dht.DHT22(board.D21)
             #temperature_ext = dht22ext.temperature
             #humidity_ext = dht22ext.humidity
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Exterior: {dht_error}")
             #self.start_read(self.dht22int, self.dht22ext)
 
-        self.dht22ext = dht22ext
-        self.dht22int = dht22int
+        #self.dht22ext = dht22ext
+        #self.dht22int = dht22int
 
-        self.temperature_int = dht22int.temperature
-        self.humidity_int = dht22int.humidity
-
-        self.temperature_ext = dht22ext.temperature
-        self.humidity_ext = dht22ext.humidity
+        
 
     def start_read(self):
+        temperature_int = self.sensor_interior.temperature
+        humidity_int = self.sensor_interior.humidity
+
+        temperature_ext = self.sensor_exterior.temperature
+        humidity_ext = self.sensor_exterior.humidity
 
         fecha_hora = time.strftime("%c")
 
@@ -62,12 +63,12 @@ class Termometer():
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
 
         try:
-            temp_int = "{:.2f}".format(self.temperature_int)
+            temp_int = "{:.2f}".format(temperature_int)
             data_file.write(f"interior_temp {temp_int}\n")
 
             print(f"Temperatura Interior= {temp_int} C")
 
-            hum_int = "{:.2f}".format(self.humidity_int)
+            hum_int = "{:.2f}".format(humidity_int)
             data_file.write(f"interior_hum {hum_int}\n")
 
             print(f"Humedad Interior= {hum_int} %")
@@ -76,12 +77,12 @@ class Termometer():
             print(f"Error del Sensor Interior: {dht_error}")
 
         try:
-            temp_ext = "{:.2f}".format(self.temperature_ext)
+            temp_ext = "{:.2f}".format(temperature_ext)
             data_file.write(f"exterior_temp {temp_ext}\n")
 
             print(f"Temperatura Exterior= {temp_ext} C")
 
-            hum_ext = "{:.2f}".format(self.humidity_ext)
+            hum_ext = "{:.2f}".format(humidity_ext)
             data_file.write(f"exterior_hum {hum_ext}\n")
 
             print(f"Humedad Exterior= {hum_ext} %")
