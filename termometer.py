@@ -33,12 +33,17 @@ class Termometer():
 
     def __init__(self):
 
-        self.start_read()
+        self.start_read(self.dht22int, self.dht22ext)
 
 
-    def start_read(self):
+    def start_read(self, dht22int, dht22ext):
 
         fecha_hora = time.strftime("%c")
+        self.temperature_int = dht22int.temperature
+        self.humidity_int = dht22int.humidity
+
+        self.temperature_ext = dht22ext.temperature
+        self.humidity_ext = dht22ext.humidity
 
         print(f"\n{fecha_hora}")
 
