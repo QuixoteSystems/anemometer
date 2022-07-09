@@ -129,16 +129,16 @@ class Anemometer():
         :return: m/s
         """
 
-        ## Parámetros base
+        ## Parametros base
         pulsos = int(self.pulsos)
         pulsos_por_vuelta = int(self.pulsos_por_vuelta)
         radio = float(self.RADIO)
 
-        ## Cálculo de tiempo desde que inició el contador de pulsos
+        ## Calculo de tiempo desde que inició el contador de pulsos
         time_now = time.time()
         time_diff = time_now - self.s_time
 
-        ## Parámetros calculados
+        ## Parametros calculados
         vueltas = (pulsos / pulsos_por_vuelta)
         circunferencia = 2 * math.pi * (radio / 10)
         velocidad = (circunferencia * vueltas) / time_diff
@@ -161,7 +161,7 @@ class Anemometer():
         Genera los valores para el viento actual, máximo, mínimo y media.
         """
 
-        ## Aumento el contador, será reseteado al llamar a get_all_datas().
+        ## Aumento el contador, sera reseteado al llamar a get_all_datas().
         self.wind_recount += 1
 
         ## Valores anteriores registrados.
