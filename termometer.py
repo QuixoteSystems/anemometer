@@ -49,7 +49,7 @@ class Termometer():
 
         fecha_hora = time.strftime("%c")
 
-        print(f"\n{fecha_hora}")
+        #print(f"\n{fecha_hora}")
 
         # Abrimos archivo donde escribiremos los datos
         data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
@@ -66,12 +66,12 @@ class Termometer():
             temp_int = "{:.2f}".format(temperature_int)
             data_file.write(f"interior_temp {temp_int}\n")
 
-            print(f"Temperatura Interior= {temp_int} C")
+            #print(f"Temperatura Interior= {temp_int} C")
 
             hum_int = "{:.2f}".format(humidity_int)
             data_file.write(f"interior_hum {hum_int}\n")
 
-            print(f"Humedad Interior= {hum_int} %")
+            #print(f"Humedad Interior= {hum_int} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
@@ -80,12 +80,12 @@ class Termometer():
             temp_ext = "{:.2f}".format(temperature_ext)
             data_file.write(f"exterior_temp {temp_ext}\n")
 
-            print(f"Temperatura Exterior= {temp_ext} C")
+            #print(f"Temperatura Exterior= {temp_ext} C")
 
             hum_ext = "{:.2f}".format(humidity_ext)
             data_file.write(f"exterior_hum {hum_ext}\n")
 
-            print(f"Humedad Exterior= {hum_ext} %")
+            #print(f"Humedad Exterior= {hum_ext} %")
 
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
