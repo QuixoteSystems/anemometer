@@ -59,6 +59,6 @@ with open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8'
 
                 f.write("exterior_hum "+ humext + "\n")
 
-                time.sleep(30)
+                time.sleep(5)
 # Cerramos el archivo
 #f.close()
