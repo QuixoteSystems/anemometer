@@ -36,6 +36,13 @@ with open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8'
 #print(f" Sensor Interior")
 #print(f"------------------")
         while True:
+
+                temperature_int = dht22int.temperature
+                humidity_int = dht22int.humidity
+
+                temperature_ext = dht22ext.temperature
+                humidity_ext = dht22ext.humidity
+                
                 print(f"                  ")
                 print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
                 
