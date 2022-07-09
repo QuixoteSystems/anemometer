@@ -45,13 +45,17 @@ class Termometer():
             temperature_int = self.sensor_interior.temperature
             humidity_int = self.sensor_interior.humidity
         except RuntimeError as dht_error:
-            print(f"Error del Sensor Interior: {dht_error}")
-
+            print(f"Error de lectura del Sensor Interior: {dht_error}")
+            temperature_int = self.sensor_interior.temperature
+            humidity_int = self.sensor_interior.humidity
+            
         try:
             temperature_ext = self.sensor_exterior.temperature
             humidity_ext = self.sensor_exterior.humidity
         except RuntimeError as dht_error:
-            print(f"Error de Conexion Sensor Exterior: {dht_error}")
+            print(f"Error de lectura del Sensor Exterior: {dht_error}")
+            temperature_ext = self.sensor_exterior.temperature
+            humidity_ext = self.sensor_exterior.humidity
 
         fecha_hora = time.strftime("%c")
 
