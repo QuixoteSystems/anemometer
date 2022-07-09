@@ -17,25 +17,24 @@ class Termometer():
     La clase quedara siempre tomando datos y se podrán calcular en cualquier
     momento usando para ello los datos recopilados desde la última vez.
     """
-    try:
-        dht22int = adafruit_dht.DHT22(board.D17)
-        #temperature_int = dht22int.temperature
-        #humidity_int = dht22int.humidity
-
-    except RuntimeError as dht_error:
-        print(f"Error de Conexion Sensor Interior: {dht_error}")
-    try:
-        dht22ext = adafruit_dht.DHT22(board.D21)
-        #temperature_ext = dht22ext.temperature
-        #humidity_ext = dht22ext.humidity
-    except RuntimeError as dht_error:
-        print(f"Error de Conexion Sensor Exterior: {dht_error}")
-        #self.start_read(self.dht22int, self.dht22ext)
+    
 
     def __init__(self):
-        dht22int = adafruit_dht.DHT22(board.D17)
-        dht22ext = adafruit_dht.DHT22(board.D21)
-        
+        try:
+            dht22int = adafruit_dht.DHT22(board.D17)
+            #temperature_int = dht22int.temperature
+            #humidity_int = dht22int.humidity
+
+        except RuntimeError as dht_error:
+            print(f"Error de Conexion Sensor Interior: {dht_error}")
+        try:
+            dht22ext = adafruit_dht.DHT22(board.D21)
+            #temperature_ext = dht22ext.temperature
+            #humidity_ext = dht22ext.humidity
+        except RuntimeError as dht_error:
+            print(f"Error de Conexion Sensor Exterior: {dht_error}")
+            #self.start_read(self.dht22int, self.dht22ext)
+
         self.dht22ext = dht22ext
         self.dht22int = dht22int
 
