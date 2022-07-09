@@ -32,11 +32,13 @@ class Termometer():
         print(f"Error de Conexion Sensor Exterior: {dht_error}")
         #self.start_read(self.dht22int, self.dht22ext)
 
-    def __init__(self, dht22int, dht22ext):
-        #dht22int = adafruit_dht.DHT22(board.D17)
+    def __init__(self):
+        dht22int = adafruit_dht.DHT22(board.D17)
+        dht22ext = adafruit_dht.DHT22(board.D21)
+        
         self.dht22ext = dht22ext
         self.dht22int = dht22int
-        
+
         self.temperature_int = dht22int.temperature
         self.humidity_int = dht22int.humidity
 
