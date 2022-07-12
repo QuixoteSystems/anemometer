@@ -304,6 +304,7 @@ class Anemometer():
             },
         }
 
+
     def debug(self):
         """
         Función para depurar funcionamiento del modelo proyectando datos por
