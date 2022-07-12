@@ -3,7 +3,7 @@
 import sys
 import time
 
-from anemometer import Anemometer
+from anemometer2 import Anemometer
 from termometer import Termometer
 
 if __name__ == "__main__":
