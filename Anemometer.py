@@ -311,9 +311,6 @@ class Anemometer():
         consola.
         """
         # Abrimos archivo donde escribiremos los datos
-
-        #f = open ('/var/lib/prometheus/node-exporter/wind.prom','w')
-
         with open("/var/lib/prometheus/node-exporter/wind.prom", "w", encoding="utf-8") as file:
             file.write("velocidad "+ str(self.wind_speed) + "\n")
 
