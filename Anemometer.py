@@ -316,8 +316,7 @@ class Anemometer():
 
         with open("/var/lib/prometheus/node-exporter/wind.prom", "w", encoding="utf-8") as file:
             file.write("velocidad "+ str(self.wind_speed) + "\n")
-        #f.write('hola mundo')
-        #f.close()
+
         # Comentado para no llenar LOG
         #print('Pulsos Totales:', self.pulsos_totales)
         #print('Pulsos en esta medición:', self.old_pulsos)
@@ -329,5 +328,3 @@ class Anemometer():
         #print('Viento mínimo:', self.wind_min)
         #print('Viento máximo:', self.wind_max)
         time.sleep(5)
-        
-        #f.close()
