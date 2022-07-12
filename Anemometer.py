@@ -6,7 +6,6 @@ import RPi.GPIO as GPIO
 from _thread import start_new_thread
 
 
-
 class Anemometer():
     """
     Esta clase representa un sensor que envia pulsos digitales a un pin GPIO
