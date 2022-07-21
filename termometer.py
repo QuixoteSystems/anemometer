@@ -38,12 +38,12 @@ class Termometer():
         #self.dht22ext = dht22ext
         #self.dht22int = dht22int
 
-        
 
     def start_read(self):
         try:
             temperature_int = self.sensor_interior.temperature
             humidity_int = self.sensor_interior.humidity
+
         except RuntimeError as dht_error:
             print(f"Error de lectura del Sensor Interior: {dht_error}")
             temperature_int = self.sensor_interior.temperature
@@ -87,6 +87,8 @@ class Termometer():
             print(f"Error del Sensor Interior: {dht_error}")
         except RuntimeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
+        except TypeError as dht_error:
+            print(f"Error del Sensor Interior: {dht_error}")
 
         try:
             temp_ext = "{:.2f}".format(temperature_ext)
@@ -102,7 +104,9 @@ class Termometer():
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
         except RuntimeError as dht_error:
-            print(f"Error del Sensor Exterior {dht_error}")
+            print(f"Error del Sensor Exterior: {dht_error}")
+        except TypeError as dht_error:
+            print(f"Error del Sensor Exterior: {dht_error}")
 
         # Cerramos el archivo
         data_file.close()
