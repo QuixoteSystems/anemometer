@@ -12,7 +12,7 @@ import board
 #dht22int = adafruit_dht.DHT22(SENSOR_PIN17, use_pulseio=False)
 #dht22ext = adafruit_dht.DHT22(SENSOR_PIN21, use_pulseio=False)
 
-dht22ext = adafruit_dht.DHT22(board.D20)
+dht22ext = adafruit_dht.DHT22(board.D21)
 dht22int = adafruit_dht.DHT22(board.D17)
 
 temperature_int = dht22int.temperature
