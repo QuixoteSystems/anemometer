@@ -7,7 +7,7 @@ from anemometer import Anemometer
 from termometer import Termometer
 
 if __name__ == "__main__":
-    anemometer = Anemometer()
+    #anemometer = Anemometer()
     termometer = Termometer()
 
     ## Inicio lecturas de datos de anemometro y termometros
@@ -34,11 +34,11 @@ if __name__ == "__main__":
             #print('Contador:', count)
             if (count % 5) == 0:
                 #print(anemometer.get_all_datas())
-                anemometer.debug()
+                #anemometer.debug()
             else:
-                anemometer.debug()
+                #anemometer.debug()
         except KeyboardInterrupt:
-            anemometer.stop_read()
+            #anemometer.stop_read()
             sys.exit(0)
         time.sleep(30)
     
