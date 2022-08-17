@@ -62,7 +62,7 @@ class Termometer():
     def start_read(self):
 
         # Abrimos archivo donde escribiremos los datos
-        data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
+        data_file = open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
         #f.write('hola mundo')
         #f.close()
 
@@ -139,9 +139,6 @@ class Termometer():
 #print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
         #f.write("Fecha y Hora" + fecha_hora)
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
-
-
-        
 
         # Cerramos el archivo
         data_file.close()
