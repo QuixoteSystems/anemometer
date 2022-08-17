@@ -51,7 +51,7 @@ def read_sensors(anemometer, termometer):
         #except KeyboardInterrupt:
             #anemometer.stop_read()
             #sys.exit(0)
-        time.sleep(5)
+        time.sleep(60)
 
 if __name__ == "__main__":
     
