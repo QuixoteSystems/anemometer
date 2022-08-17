@@ -100,7 +100,7 @@ class Termometer():
                   
         try:
             success = False
-            while success is True:
+            while success is False:
 
                 if success is False:
                     temperature_ext = self.sensor_exterior.temperature
