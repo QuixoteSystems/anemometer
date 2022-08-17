@@ -67,15 +67,29 @@ class Termometer():
         #f.close()
 
         try:
-            temperature_int = self.sensor_interior.temperature
-            humidity_int = self.sensor_interior.humidity
-            
-            temp_int = "{:.2f}".format(temperature_int)
-            data_file.write(f"interior_temp {temp_int}\n")
+            success = False
+            while success is False:
 
-            hum_int = "{:.2f}".format(humidity_int)
-            data_file.write(f"interior_hum {hum_int}\n")
+                if success is False:
+                    try:
+                        temperature_int = self.sensor_interior.temperature
+                        humidity_int = self.sensor_interior.humidity
+                        success = True
 
+                    except RuntimeError as dht_error:
+                        print(f"Error de lectura del Sensor Interior: {dht_error}")
+                        logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
+                        #time.sleep(30)
+                if success is True:
+                    temp_int = "{:.2f}".format(temperature_int)
+                    data_file.write(f"interior_temp {temp_int}\n")
+
+                    #logger.info("Temperatura Interior: %s", temp_int+"C")
+
+                    hum_int = "{:.2f}".format(humidity_int)
+                    data_file.write(f"interior_hum {hum_int}\n")
+                time.sleep(2)
+                
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Interior: {dht_error}")
             logger.warning('Sin datos del Sensor Interior: %s', dht_error)
@@ -88,12 +102,7 @@ class Termometer():
         except TypeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
             logger.error('Error 3 del Sensor Interior: %s', dht_error)
-        '''
-        except RuntimeError as dht_error:
-            print(f"Error de lectura del Sensor Interior: {dht_error}")
-            logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
-            time.sleep(30)
-        '''
+
             #print("Esperamos 30 segundos antes de volver a leer")
             #temperature_int = self.sensor_interior.temperature
             #humidity_int = self.sensor_interior.humidity
@@ -120,7 +129,7 @@ class Termometer():
                     temp_ext = "{:.2f}".format(temperature_ext)
                     data_file.write(f"exterior_temp {temp_ext}\n")
 
-                    logger.info("Temperatura Exterior: %s", temp_ext+"C")
+                    #logger.info("Temperatura Exterior: %s", temp_ext+"C")
 
                     hum_ext = "{:.2f}".format(humidity_ext)
                     data_file.write(f"exterior_hum {hum_ext}\n")
