@@ -103,10 +103,11 @@ class Termometer():
             while success is False:
 
                 if success is False:
-                    try: 
+                    try:
                         temperature_ext = self.sensor_exterior.temperature
                         humidity_ext = self.sensor_exterior.humidity
                         success = True
+
                     except RuntimeError as dht_error:
                         print(f"Error de lectura del Sensor Exterior: {dht_error}")
                         logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
