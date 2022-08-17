@@ -109,7 +109,7 @@ class Termometer():
             #print(f"Humedad Interior= {hum_int} %")
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Interior: {dht_error}")
-            logger.error('Sin datos del Sensor Interior: %s', dht_error)
+            logger.warning('Sin datos del Sensor Interior: %s', dht_error)
         except AttributeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
             logger.error('Error del Sensor Interior: %s', dht_error)
@@ -133,7 +133,7 @@ class Termometer():
 
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Exterior: {dht_error}")
-            logger.error('Sin datos del Sensor Exterior: %s', dht_error)
+            logger.warning('Sin datos del Sensor Exterior: %s', dht_error)
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
             logger.error('Error del Sensor Exterior: %s', dht_error)
