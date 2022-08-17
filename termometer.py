@@ -99,17 +99,23 @@ class Termometer():
             #humidity_int = self.sensor_interior.humidity
                   
         try:
-            temperature_ext = self.sensor_exterior.temperature
-            humidity_ext = self.sensor_exterior.humidity
+            success = False
+            while success == True:
 
-            temp_ext = "{:.2f}".format(temperature_ext)
-            data_file.write(f"exterior_temp {temp_ext}\n")
+                if success == False:
+                    temperature_ext = self.sensor_exterior.temperature
+                    humidity_ext = self.sensor_exterior.humidity
+                    success = True
+                else:
+                    temp_ext = "{:.2f}".format(temperature_ext)
+                    data_file.write(f"exterior_temp {temp_ext}\n")
 
-            #print(f"Temperatura Exterior= {temp_ext} C")
+                    #print(f"Temperatura Exterior= {temp_ext} C")
 
-            hum_ext = "{:.2f}".format(humidity_ext)
-            data_file.write(f"exterior_hum {hum_ext}\n")
-
+                    hum_ext = "{:.2f}".format(humidity_ext)
+                    data_file.write(f"exterior_hum {hum_ext}\n")
+                time.sleep(2)
+                
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Exterior: {dht_error}")
             logger.warning('Sin datos del Sensor Exterior: %s', dht_error)
