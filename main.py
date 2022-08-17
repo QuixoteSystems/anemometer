@@ -2,7 +2,7 @@
 
 import sys
 import time
-import datetime
+from datetime import datetime
 import logging
 
 from anemometer import Anemometer
@@ -18,6 +18,7 @@ def start_log():
     month = now.strftime("%m")
     day = now.strftime("%d")
     date= day+month+year
+
     # si no se pone un archivo valido va directamente a /var/log/syslog
     logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 
