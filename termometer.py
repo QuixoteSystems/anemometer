@@ -1,5 +1,6 @@
 import adafruit_dht
 import time
+from datetime import datetime
 import board
 import logging
 
