@@ -37,7 +37,7 @@ class Termometer():
 
     def __init__(self):
         try:
-            self.sensor_interior = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 'D17')
+            self.sensor_interior = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, '17')
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
 
