@@ -1,4 +1,5 @@
 import adafruit_dht
+import Adafruit_DHT
 import time
 from datetime import datetime
 import board
@@ -36,7 +37,7 @@ class Termometer():
 
     def __init__(self):
         try:
-            self.sensor_interior = adafruit_dht.DHT22(board.D17, use_pulseio=False)
+            self.sensor_interior = Adafruit_DHT.DHT22(board.D17, use_pulseio=False)
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
 
@@ -67,7 +68,7 @@ class Termometer():
         try:
             temperature_int = self.sensor_interior.temperature
             humidity_int = self.sensor_interior.humidity
-
+            time.sleep(2)
             temp_int = "{:.2f}".format(temperature_int)
             data_file.write(f"interior_temp {temp_int}\n")
 
