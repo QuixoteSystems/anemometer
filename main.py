@@ -2,6 +2,7 @@
 
 import sys
 import time
+import datetime
 import logging
 
 from anemometer import Anemometer
@@ -10,8 +11,15 @@ from termometer import Termometer
 
 def start_log():
     # Create LOG file
+
+    # Current date and time
+    now = datetime.now()
+    year = now.strftime("%Y")
+    month = now.strftime("%m")
+    day = now.strftime("%d")
+    date= day+month+year
     # si no se pone un archivo valido va directamente a /var/log/syslog
-    logging.basicConfig(filename=f'/home/siseda/git/weather-stationlog/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
+    logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 
     #Let us Create an object
     logger=logging.getLogger('server_logger')
