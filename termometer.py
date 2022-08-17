@@ -116,7 +116,7 @@ class Termometer():
                         #temperature_ext = self.sensor_exterior.temperature
                         #humidity_ext = self.sensor_exterior.humidity
 
-                else:
+                if success is True:
                     temp_ext = "{:.2f}".format(temperature_ext)
                     data_file.write(f"exterior_temp {temp_ext}\n")
 
