@@ -37,7 +37,7 @@ class Termometer():
 
     def __init__(self):
         try:
-            self.sensor_interior = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, '17')
+            self.sensor_interior_tem, self.sensor_interior_hum = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, '17')
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
 
@@ -66,13 +66,13 @@ class Termometer():
         #f.close()
 
         try:
-            temperature_int = self.sensor_interior.temp
-            humidity_int = self.sensor_interior.humidity
+            temperature_int = self.sensor_interior_tem
+            humidity_int = self.sensor_interior_hum
             time.sleep(2)
-            temp_int = "{:.2f}".format(temperature_int)
+            temp_int = "{0:0.1f}".format(temperature_int)
             data_file.write(f"interior_temp {temp_int}\n")
 
-            hum_int = "{:.2f}".format(humidity_int)
+            hum_int = "{1:0.1f}%".format(humidity_int)
             data_file.write(f"interior_hum {hum_int}\n")
 
         except UnboundLocalError as dht_error:
