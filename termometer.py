@@ -80,6 +80,7 @@ class Termometer():
                         print(f"Error de lectura del Sensor Interior: {dht_error}")
                         logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
                         #time.sleep(30)
+                        
                 if success is True:
                     temp_int = "{:.2f}".format(temperature_int)
                     data_file.write(f"interior_temp {temp_int}\n")
