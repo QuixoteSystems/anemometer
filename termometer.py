@@ -99,7 +99,7 @@ class Termometer():
             #print("Esperamos 30 segundos antes de volver a leer")
             #temperature_int = self.sensor_interior.temperature
             #humidity_int = self.sensor_interior.humidity
-'''            
+        '''            
         try:
             time.sleep(5)
             temperature_ext = self.sensor_exterior.temperature
@@ -125,7 +125,7 @@ class Termometer():
         except TypeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
             logger.error('Error del Sensor Exterior: %s', dht_error)
-'''
+        '''
         '''
         except RuntimeError as dht_error:
             print(f"Error de lectura del Sensor Exterior: {dht_error}")
