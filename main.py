@@ -28,7 +28,7 @@ def start_log():
 
     # Initial Log
     logger.info('--------------------------------------')
-    logger.info('Weather Station main.py script started')
+    logger.info('Weather Station main.py script STARTED')
     logger.info('--------------------------------------')
 
 
