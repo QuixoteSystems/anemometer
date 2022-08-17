@@ -66,7 +66,7 @@ class Termometer():
         #f.close()
 
         try:
-            temperature_int = self.sensor_interior.temperature
+            temperature_int = self.sensor_interior.temp
             humidity_int = self.sensor_interior.humidity
             time.sleep(2)
             temp_int = "{:.2f}".format(temperature_int)
