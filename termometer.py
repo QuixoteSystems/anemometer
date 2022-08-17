@@ -84,7 +84,7 @@ class Termometer():
                     temp_int = "{:.2f}".format(temperature_int)
                     data_file.write(f"interior_temp {temp_int}\n")
 
-                    logger.info("Temperatura Interior: %s", temp_int+"C")
+                    #logger.info("Temperatura Interior: %s", temp_int+"C")
 
                     hum_int = "{:.2f}".format(humidity_int)
                     data_file.write(f"interior_hum {hum_int}\n")
@@ -129,7 +129,7 @@ class Termometer():
                     temp_ext = "{:.2f}".format(temperature_ext)
                     data_file.write(f"exterior_temp {temp_ext}\n")
 
-                    logger.info("Temperatura Exterior: %s", temp_ext+"C")
+                    #logger.info("Temperatura Exterior: %s", temp_ext+"C")
 
                     hum_ext = "{:.2f}".format(humidity_ext)
                     data_file.write(f"exterior_hum {hum_ext}\n")
