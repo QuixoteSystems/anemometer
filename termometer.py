@@ -11,7 +11,9 @@ year = now.strftime("%Y")
 month = now.strftime("%m")
 day = now.strftime("%d")
 date= day+month+year
-logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
+
+logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', 
+filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 #Let us Create an object
 logger=logging.getLogger('server_logger')
 logger.setLevel(logging.DEBUG)
@@ -40,14 +42,14 @@ class Termometer():
 
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Interior: {dht_error}")
-            logger.warning('Error de Conexion Sensor Interior: %s', dht_error)
+            logger.error('Error de Conexion Sensor Interior: %s', dht_error)
         try:
             self.sensor_exterior = adafruit_dht.DHT22(board.D21, use_pulseio=False)
             #temperature_ext = dht22ext.temperature
             #humidity_ext = dht22ext.humidity
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Exterior: {dht_error}")
-            logger.warning('Error de Conexion Sensor Exterior: %s', dht_error)
+            logger.error('Error de Conexion Sensor Exterior: %s', dht_error)
             
             #self.start_read(self.dht22int, self.dht22ext)
         
@@ -62,7 +64,7 @@ class Termometer():
 
         except RuntimeError as dht_error:
             print(f"Error de lectura del Sensor Interior: {dht_error}")
-            logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
+            logger.error('Error de lectura del Sensor Interior: %s', dht_error)
             time.sleep(30)
             print("Esperamos 30 segundos antes de volver a leer")
             #temperature_int = self.sensor_interior.temperature
@@ -74,7 +76,7 @@ class Termometer():
 
         except RuntimeError as dht_error:
             print(f"Error de lectura del Sensor Exterior: {dht_error}")
-            logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
+            logger.error('Error de lectura del Sensor Exterior: %s', dht_error)
             print("Esperamos 30 segundos antes de volver a leer")
             time.sleep(30)
             #temperature_ext = self.sensor_exterior.temperature
@@ -107,16 +109,16 @@ class Termometer():
             #print(f"Humedad Interior= {hum_int} %")
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Interior: {dht_error}")
-            logger.warning('Sin datos del Sensor Interior: %s', dht_error)
+            logger.error('Sin datos del Sensor Interior: %s', dht_error)
         except AttributeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
-            logger.warning('Error del Sensor Interior: %s', dht_error)
+            logger.error('Error del Sensor Interior: %s', dht_error)
         except RuntimeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
-            logger.warning('Error del Sensor Interior: %s', dht_error)
+            logger.error('Error del Sensor Interior: %s', dht_error)
         except TypeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
-            logger.warning('Error del Sensor Interior: %s', dht_error)
+            logger.error('Error del Sensor Interior: %s', dht_error)
 
         try:
             temp_ext = "{:.2f}".format(temperature_ext)
@@ -131,16 +133,16 @@ class Termometer():
 
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Exterior: {dht_error}")
-            logger.warning('Sin datos del Sensor Exterior: %s', dht_error)
+            logger.error('Sin datos del Sensor Exterior: %s', dht_error)
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
-            logger.warning('Error del Sensor Exterior: %s', dht_error)
+            logger.error('Error del Sensor Exterior: %s', dht_error)
         except RuntimeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
-            logger.warning('Error del Sensor Exterior: %s', dht_error)
+            logger.error('Error del Sensor Exterior: %s', dht_error)
         except TypeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
-            logger.warning('Error del Sensor Exterior: %s', dht_error)
+            logger.error('Error del Sensor Exterior: %s', dht_error)
 
         # Cerramos el archivo
         data_file.close()
