@@ -27,7 +27,9 @@ def start_log():
     logger.setLevel(logging.DEBUG)
 
     # Initial Log
+    logger.info('--------------------------------------')
     logger.info('Weather Station main.py script started')
+    logger.info('--------------------------------------')
 
 
     
