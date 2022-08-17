@@ -59,7 +59,10 @@ class Termometer():
 
     def start_read(self):
 
+        # Abrimos archivo donde escribiremos los datos
         data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
+        #f.write('hola mundo')
+        #f.close()
 
         try:
             temperature_int = self.sensor_interior.temperature
@@ -97,34 +100,6 @@ class Termometer():
             temperature_ext = self.sensor_exterior.temperature
             humidity_ext = self.sensor_exterior.humidity
 
-        except RuntimeError as dht_error:
-            print(f"Error de lectura del Sensor Exterior: {dht_error}")
-            logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
-            #print("Esperamos 30 segundos antes de volver a leer")
-            time.sleep(30)
-            #temperature_ext = self.sensor_exterior.temperature
-            #humidity_ext = self.sensor_exterior.humidity
-
-        fecha_hora = time.strftime("%c")
-
-        #print(f"\n{fecha_hora}")
-
-        # Abrimos archivo donde escribiremos los datos
-        data_file = open ('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
-        #f.write('hola mundo')
-        #f.close()
-
-        #si queremos que muestre esto cada 5 segundos descomentar el while y el time.sleep
-
-#print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
-        #f.write("Fecha y Hora" + fecha_hora)
-#print("Hora: "+ time.strftime("%H:%M:%S+0001"))
-
-
-            #print(f"Humedad Interior= {hum_int} %")
-        
-
-        try:
             temp_ext = "{:.2f}".format(temperature_ext)
             data_file.write(f"exterior_temp {temp_ext}\n")
 
@@ -132,8 +107,6 @@ class Termometer():
 
             hum_ext = "{:.2f}".format(humidity_ext)
             data_file.write(f"exterior_hum {hum_ext}\n")
-
-            #print(f"Humedad Exterior= {hum_ext} %")
 
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor Exterior: {dht_error}")
@@ -147,6 +120,26 @@ class Termometer():
         except TypeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
             logger.error('Error del Sensor Exterior: %s', dht_error)
+
+        '''
+        except RuntimeError as dht_error:
+            print(f"Error de lectura del Sensor Exterior: {dht_error}")
+            logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
+            #print("Esperamos 30 segundos antes de volver a leer")
+            time.sleep(30)
+            #temperature_ext = self.sensor_exterior.temperature
+            #humidity_ext = self.sensor_exterior.humidity
+        '''
+        
+
+        #si queremos que muestre esto cada 5 segundos descomentar el while y el time.sleep
+
+#print("Dia: "+ time.strftime("%d/%m/%y") + "  Hora: "+ time.strftime("%H:%M:%S"))
+        #f.write("Fecha y Hora" + fecha_hora)
+#print("Hora: "+ time.strftime("%H:%M:%S+0001"))
+
+
+        
 
         # Cerramos el archivo
         data_file.close()
