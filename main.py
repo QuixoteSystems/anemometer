@@ -2,25 +2,27 @@
 
 import sys
 import time
+import logging
 
 from anemometer import Anemometer
 from termometer import Termometer
 
-if __name__ == "__main__":
-    anemometer = Anemometer()
-    termometer = Termometer()
 
-    ## Inicio lecturas de datos de anemometro y termometros
-    #anemometer.start_read()
-    #termometer.start_read()
+def start_log():
+    # Create LOG file
+    # si no se pone un archivo valido va directamente a /var/log/syslog
+    logging.basicConfig(filename=f'/home/siseda/git/weather-stationlog/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 
-    ## Espera de 3 segundos recopilando los primeros datos
-    time.sleep(3)
-    count = 0
+    #Let us Create an object
+    logger=logging.getLogger('server_logger')
+    logger.setLevel(logging.DEBUG)
+
+    # Initial Log
+    logger.info('Weather Station main.py script started')
 
 
-
-    ## Muestro constantemente los datos recopilados para probar, calibrar o debug
+    
+def read_sensors(*args):
     while True:
         #try:
         anemometer.start_read()
@@ -39,6 +41,26 @@ if __name__ == "__main__":
             #anemometer.stop_read()
             #sys.exit(0)
         time.sleep(30)
+
+if __name__ == "__main__":
+    
+    start_log()
+
+    anemometer = Anemometer()
+    termometer = Termometer()
+
+    read_sensors(anemometer, termometer)
+
+    ## Inicio lecturas de datos de anemometro y termometros
+    #anemometer.start_read()
+    #termometer.start_read()
+
+    ## Espera de 3 segundos recopilando los primeros datos
+    #time.sleep(3)
+    #count = 0
+
+    ## Muestro constantemente los datos recopilados para probar, calibrar o debug
+    
     
     # Ejecutamos una vez la lectura
     #anemometer.debug()
