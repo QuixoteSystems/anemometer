@@ -31,7 +31,7 @@ def start_log():
 
 
     
-def read_sensors(*args):
+def read_sensors(anemometer, termometer):
     while True:
         #try:
         anemometer.start_read()

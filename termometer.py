@@ -1,7 +1,12 @@
 import adafruit_dht
 import time
 import board
+import logging
 
+logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
+#Let us Create an object
+logger=logging.getLogger('server_logger')
+logger.setLevel(logging.DEBUG)
 
 class Termometer():
     """
@@ -34,7 +39,7 @@ class Termometer():
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Exterior: {dht_error}")
             #self.start_read(self.dht22int, self.dht22ext)
-
+        
         #self.dht22ext = dht22ext
         #self.dht22int = dht22int
 
@@ -46,6 +51,7 @@ class Termometer():
 
         except RuntimeError as dht_error:
             print(f"Error de lectura del Sensor Interior: {dht_error}")
+            logger.warning("Error de lectura del Sensor Interior: %s }")
             time.sleep(30)
             print("Esperamos 30 segundos antes de volver a leer")
             #temperature_int = self.sensor_interior.temperature
@@ -108,7 +114,7 @@ class Termometer():
             #print(f"Humedad Exterior= {hum_ext} %")
 
         except UnboundLocalError as dht_error:
-            print(f"Sin del Sensor Exterior: {dht_error}")
+            print(f"Sin datos del Sensor Exterior: {dht_error}")
         except AttributeError as dht_error:
             print(f"Error del Sensor Exterior: {dht_error}")
         except RuntimeError as dht_error:
