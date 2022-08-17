@@ -3,6 +3,13 @@ import time
 import board
 import logging
 
+# Create LOG file
+# Current date and time
+now = datetime.now()
+year = now.strftime("%Y")
+month = now.strftime("%m")
+day = now.strftime("%d")
+date= day+month+year
 logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 #Let us Create an object
 logger=logging.getLogger('server_logger')
