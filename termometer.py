@@ -68,6 +68,7 @@ class Termometer():
         #f.close()
 
         try:
+            time.sleep(2)
             temperature_int = self.sensor_interior.temperature
             humidity_int = self.sensor_interior.humidity
             
@@ -100,6 +101,7 @@ class Termometer():
             #humidity_int = self.sensor_interior.humidity
             
         try:
+            time.sleep(2)
             temperature_ext = self.sensor_exterior.temperature
             humidity_ext = self.sensor_exterior.humidity
 
