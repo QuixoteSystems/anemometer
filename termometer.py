@@ -1,5 +1,4 @@
 import adafruit_dht
-import Adafruit_DHT
 import time
 from datetime import datetime
 import board
@@ -68,7 +67,6 @@ class Termometer():
         #f.close()
 
         try:
-            time.sleep(5)
             temperature_int = self.sensor_interior.temperature
             humidity_int = self.sensor_interior.humidity
             
@@ -101,7 +99,6 @@ class Termometer():
             #humidity_int = self.sensor_interior.humidity
                   
         try:
-            time.sleep(5)
             temperature_ext = self.sensor_exterior.temperature
             humidity_ext = self.sensor_exterior.humidity
 
