@@ -37,10 +37,10 @@ class Termometer():
 
     def __init__(self):
         try:
-            self.sensor_interior_tem, self.sensor_interior_hum = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, '17')
+            self.sensor_interior = Adafruit_DHT.DHT22(board.D17, use_pulseio=False)
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
-
+            time.sleep(2)
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Interior: {dht_error}")
             logger.error('Error de Conexion Sensor Interior: %s', dht_error)
@@ -48,6 +48,8 @@ class Termometer():
             self.sensor_exterior = adafruit_dht.DHT22(board.D21, use_pulseio=False)
             #temperature_ext = dht22ext.temperature
             #humidity_ext = dht22ext.humidity
+            time.sleep(2)
+            
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor Exterior: {dht_error}")
             logger.error('Error de Conexion Sensor Exterior: %s', dht_error)
@@ -66,13 +68,13 @@ class Termometer():
         #f.close()
 
         try:
-            temperature_int = self.sensor_interior_tem
-            humidity_int = self.sensor_interior_hum
-            time.sleep(2)
-            temp_int = "{0:0.1f}".format(temperature_int)
+            temperature_int = self.sensor_interior.temperature
+            humidity_int = self.sensor_interior.humidity
+            
+            temp_int = "{:.2f}".format(temperature_int)
             data_file.write(f"interior_temp {temp_int}\n")
 
-            hum_int = "{1:0.1f}%".format(humidity_int)
+            hum_int = "{:.2f}".format(humidity_int)
             data_file.write(f"interior_hum {hum_int}\n")
 
         except UnboundLocalError as dht_error:
