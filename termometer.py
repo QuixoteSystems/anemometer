@@ -46,7 +46,7 @@ class Termometer():
         pin = "D17"
         print(pin)
         try:
-            self.sensor_name = adafruit_dht.DHT22(board.pin, use_pulseio=False)
+            self.sensor_name = adafruit_dht.DHT22(pin=getattr(board, pin), use_pulseio=False)
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
             time.sleep(2)
