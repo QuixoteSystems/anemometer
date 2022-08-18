@@ -42,8 +42,8 @@ def read_sensors(sensor1, sensor2, sensor3):
     while True:
         #try:
         sensor1.start_read()
-        sensor2.start_read("exterior", 21)
-        sensor3.start_read("interior", 17)
+        sensor2.start_read()
+        sensor3.start_read()
             ## Cuando ha tomado 5 lecturas devuelve y resetea contadores
             ## para indicar que comienza una nueva medición.
             #count += 1
@@ -63,8 +63,8 @@ if __name__ == "__main__":
     start_log()
 
     anemometro = Anemometer()
-    termometro_ext = Termometer()
-    termometro_int = Termometer()
+    termometro_ext = Termometer("exterior", 21)
+    termometro_int = Termometer("interior", 17)
 
     read_sensors(anemometro, termometro_ext, termometro_int)
     
