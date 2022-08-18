@@ -42,8 +42,8 @@ def read_sensors(sensor1, sensor2, sensor3):
     while True:
         #try:
         sensor1.start_read()
-        sensor2.start_read()
-        sensor3.start_read()
+        sensor2.start_read("exterior", 21)
+        sensor3.start_read("interior", 17)
             ## Cuando ha tomado 5 lecturas devuelve y resetea contadores
             ## para indicar que comienza una nueva medición.
             #count += 1
