@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 
-import sys
+'''
+    Programa principal que llama a los sensores y los construye
+'''
+
+#import sys
 import time
 from datetime import datetime
 import logging
+#from typing import Any
 
 from anemometer import Anemometer
 from termometer import Termometer
@@ -20,7 +25,8 @@ def start_log():
     date= day+month+year
 
     # si no se pone un archivo valido va directamente a /var/log/syslog
-    logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
+    logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log',
+     filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
 
     #Let us Create an object
     logger=logging.getLogger('server_logger')
@@ -32,7 +38,6 @@ def start_log():
     logger.info('--------------------------------------')
 
 
-    
 def read_sensors(anemometer, termometer):
     while True:
         #try:
@@ -57,10 +62,10 @@ if __name__ == "__main__":
     
     start_log()
 
-    anemometer = Anemometer()
-    termometer = Termometer()
+    anemometro = Anemometer()
+    termometro = Termometer()
 
-    read_sensors(anemometer, termometer)
+    read_sensors(anemometro, termometro)
 
     ## Inicio lecturas de datos de anemometro y termometros
     #anemometer.start_read()
