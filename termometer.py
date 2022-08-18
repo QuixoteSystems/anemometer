@@ -10,7 +10,6 @@ from datetime import datetime
 import board
 import logging
 
-# Create LOG file
 # Current date and time
 now = datetime.now()
 year = now.strftime("%Y")
@@ -18,11 +17,6 @@ month = now.strftime("%m")
 day = now.strftime("%d")
 date= day+month+year
 
-logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', 
-filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
-#Let us Create an object
-logger=logging.getLogger('server_logger')
-logger.setLevel(logging.DEBUG)
 
 class Termometer():
     """
@@ -41,6 +35,14 @@ class Termometer():
 
 
     def __init__(self, orig_name, pin):
+
+        # Creamos archivo de LOG
+        logging.basicConfig(filename=f'/home/siseda/git/weather-station/log/weather-station{date}.log', 
+        filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', force=True)
+        # Let us Create an object
+        logger=logging.getLogger('server_logger')
+        logger.setLevel(logging.DEBUG)
+
         self.orig_name = orig_name
         self.sensor_name = "sensor_"+ self.orig_name
         pin = "D"+pin
@@ -188,7 +190,7 @@ class Termometer():
 #print("Hora: "+ time.strftime("%H:%M:%S+0001"))
 
         # Cerramos el archivo
-        data_file.close()
+        #data_file.close()
 
         #time.sleep(5)
 
