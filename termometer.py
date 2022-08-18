@@ -73,7 +73,7 @@ class Termometer():
     def start_read(self):
 
         # Abrimos archivo donde escribiremos los datos
-        data_file = open(f'/var/lib/prometheus/node-exporter/termometer{self.orig_name}.prom','w', encoding = 'utf-8')
+        data_file = open(f'/var/lib/prometheus/node-exporter/termometer_{self.orig_name}.prom','w', encoding = 'utf-8')
 
         try:
             # Controlamos si ha podido leer correctamente el sensor y lo intenta hasta que lo
@@ -91,18 +91,18 @@ class Termometer():
                     except RuntimeError as dht_error:
                         print(f"Error de lectura del Sensor {self.orig_name}: {dht_error}")
                         # activar sólo para debug
-                        logger.warning('Error de lectura del Sensor %s: %s', self.orig_name, dht_error)
+                        #logger.warning('Error de lectura del Sensor %s: %s', self.orig_name, dht_error)
                         
                 if success is True:
                     temp_int = "{:.2f}".format(temperature_int)
                     data_file.write(f"{self.orig_name}_temp {temp_int}\n")
                     # activar sólo para debug
-                    logger.info(f"Temperatura {self.orig_name}: %s", temp_int+"C")
+                    #logger.info(f"Temperatura {self.orig_name}: %s", temp_int+"C")
 
                     hum_int = "{:.2f}".format(humidity_int)
                     data_file.write(f"{self.orig_name}_hum {hum_int}\n")
                     # activar sólo para debug
-                    logger.info(f"Temperatura {self.orig_name}: %s", hum_int+"C")
+                    #logger.info(f"Temperatura {self.orig_name}: %s", hum_int+"C")
 
                     data_file.close()
                 time.sleep(2)
