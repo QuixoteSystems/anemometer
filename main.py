@@ -38,12 +38,12 @@ def start_log():
     logger.info('--------------------------------------')
 
 
-def read_sensors(anemometer, termometer):
+def read_sensors(sensor1, sensor2, sensor3):
     while True:
         #try:
-        anemometer.start_read()
-        termometer.start_read()
-
+        sensor1.start_read()
+        sensor2.start_read()
+        sensor3.start_read()
             ## Cuando ha tomado 5 lecturas devuelve y resetea contadores
             ## para indicar que comienza una nueva medición.
             #count += 1
@@ -63,9 +63,11 @@ if __name__ == "__main__":
     start_log()
 
     anemometro = Anemometer()
-    termometro = Termometer()
+    termometro_ext = Termometer()
+    termometro_int = Termometer()
 
-    read_sensors(anemometro, termometro)
+    read_sensors(anemometro, termometro_ext, termometro_int)
+    
 
     ## Inicio lecturas de datos de anemometro y termometros
     #anemometer.start_read()
