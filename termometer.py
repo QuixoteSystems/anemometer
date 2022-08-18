@@ -73,7 +73,7 @@ class Termometer():
     def start_read(self):
 
         # Abrimos archivo donde escribiremos los datos
-        data_file = open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
+        data_file = open(f'/var/lib/prometheus/node-exporter/termometer{self.orig_name}.prom','w', encoding = 'utf-8')
 
         try:
             # Controlamos si ha podido leer correctamente el sensor y lo intenta hasta que lo
@@ -103,6 +103,7 @@ class Termometer():
                     data_file.write(f"{self.orig_name}_hum {hum_int}\n")
                     # activar sólo para debug
                     logger.info(f"Temperatura {self.orig_name}: %s", hum_int+"C")
+
                     data_file.close()
                 time.sleep(2)
 
