@@ -42,9 +42,9 @@ class Termometer():
 
     def __init__(self, orig_name, pin):
         self.orig_name = orig_name
-        self.sensor_name = "sensor_"+orig_name
-        pin = "D"+pin
-        print(pin)
+        self.sensor_name = "sensor_"+ self.orig_name
+        self.pin = "D"+pin
+
         try:
             self.sensor_name = adafruit_dht.DHT22(pin=getattr(board, pin), use_pulseio=False)
             #temperature_int = dht22int.temperature
@@ -52,7 +52,7 @@ class Termometer():
             time.sleep(2)
         except RuntimeError as dht_error:
             print(f"Error de Conexion Sensor {orig_name}erior: {dht_error}")
-            logger.error('Error de Conexion Sensor Interior: %s', dht_error)
+            logger.error('Error de Conexion Sensor %s: %s', self.orig_name, dht_error)
         '''    
         try:
             self.sensor_exterior = adafruit_dht.DHT22(board.D21, use_pulseio=False)
@@ -105,18 +105,16 @@ class Termometer():
 
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor {self.orig_name}: {dht_error}")
-            logger.warning('Sin datos del Sensor Interior: %s', dht_error)
-            '''except AttributeError as dht_error:
+            logger.warning('Sin datos del Sensor  %s: %s', self.orig_name, dht_error)
+        except AttributeError as dht_error:
             print(f"Error del Sensor {self.orig_name}: {dht_error}")
-            logger.error('Error 1 del Sensor Interior: %s', dht_error)
-
-            '''
+            logger.error('Error 1 del Sensor  %s: %s', self.orig_name, dht_error)
         except RuntimeError as dht_error:
             print(f"Error del Sensor {self.orig_name}: {dht_error}")
-            logger.error('Error 2 del Sensor interior: %s', dht_error)
+            logger.error('Error 2 del Sensor %s: %s', self.orig_name, dht_error)
         except TypeError as dht_error:
             print(f"Error del Sensor Interior: {dht_error}")
-            logger.error('Error 3 del Sensor Interior: %s', dht_error)
+            logger.error('Error 3 del Sensor  %s: %s', self.orig_name, dht_error)
 
             #print("Esperamos 30 segundos antes de volver a leer")
             #temperature_int = self.sensor_interior.temperature
