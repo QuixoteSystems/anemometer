@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-    Programa principal que llama a los sensores y los construye
+    Programa principal que construye los sensores y los llama para la lectura de datos
 '''
 
 #import sys
