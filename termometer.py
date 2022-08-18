@@ -106,9 +106,11 @@ class Termometer():
         except UnboundLocalError as dht_error:
             print(f"Sin datos del Sensor {self.orig_name}: {dht_error}")
             logger.warning('Sin datos del Sensor Interior: %s', dht_error)
-        except AttributeError as dht_error:
+            '''except AttributeError as dht_error:
             print(f"Error del Sensor {self.orig_name}: {dht_error}")
             logger.error('Error 1 del Sensor Interior: %s', dht_error)
+
+            '''
         except RuntimeError as dht_error:
             print(f"Error del Sensor {self.orig_name}: {dht_error}")
             logger.error('Error 2 del Sensor interior: %s', dht_error)
