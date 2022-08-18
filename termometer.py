@@ -63,10 +63,10 @@ class Termometer():
 
         # Abrimos archivo donde escribiremos los datos
         data_file = open('/var/lib/prometheus/node-exporter/datos.prom','w', encoding = 'utf-8')
-        #f.write('hola mundo')
-        #f.close()
 
         try:
+            # Controlamos si ha podido leer correctamente el sensor y lo intenta hasta que lo
+            # consigue para que no de errores
             success = False
             while success is False:
 
@@ -78,13 +78,13 @@ class Termometer():
 
                     except RuntimeError as dht_error:
                         print(f"Error de lectura del Sensor Interior: {dht_error}")
-                        logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
-                        #time.sleep(30)
+                        # activar sólo para debug
+                        #logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
                         
                 if success is True:
                     temp_int = "{:.2f}".format(temperature_int)
                     data_file.write(f"interior_temp {temp_int}\n")
-
+                    # activar sólo para debug
                     #logger.info("Temperatura Interior: %s", temp_int+"C")
 
                     hum_int = "{:.2f}".format(humidity_int)
@@ -109,6 +109,8 @@ class Termometer():
             #humidity_int = self.sensor_interior.humidity
                   
         try:
+            # Controlamos si ha podido leer correctamente el sensor y lo intenta hasta que lo
+            # consigue para que no de errores
             success = False
             while success is False:
 
@@ -120,7 +122,9 @@ class Termometer():
 
                     except RuntimeError as dht_error:
                         print(f"Error de lectura del Sensor Exterior: {dht_error}")
-                        logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
+                        # activar sólo para debug
+                        #logger.warning('Error de lectura del Sensor Exterior: %s', dht_error)
+
                         #print("Esperamos 30 segundos antes de volver a leer")
                         #time.sleep(30)
                         #temperature_ext = self.sensor_exterior.temperature
@@ -130,6 +134,7 @@ class Termometer():
                     temp_ext = "{:.2f}".format(temperature_ext)
                     data_file.write(f"exterior_temp {temp_ext}\n")
 
+                    # activar sólo para debug
                     #logger.info("Temperatura Exterior: %s", temp_ext+"C")
 
                     hum_ext = "{:.2f}".format(humidity_ext)
