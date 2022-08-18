@@ -86,13 +86,12 @@ class Termometer():
                         temperature_int = self.sensor_name.temperature
                         humidity_int = self.sensor_name.humidity
                         success = True
-                        logger.info(temperature_int)
-                        logger.info(humidity_int)
+
 
                     except RuntimeError as dht_error:
-                        print(f"Error de lectura del Sensor {self.orig_name}erior: {dht_error}")
+                        print(f"Error de lectura del Sensor {self.orig_name}: {dht_error}")
                         # activar sólo para debug
-                        logger.warning('Error de lectura del Sensor Interior: %s', dht_error)
+                        logger.warning('Error de lectura del Sensor %s: %s', self.orig_name, dht_error)
                         
                 if success is True:
                     temp_int = "{:.2f}".format(temperature_int)
