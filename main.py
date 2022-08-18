@@ -63,8 +63,8 @@ if __name__ == "__main__":
     start_log()
 
     anemometro = Anemometer()
-    termometro_ext = Termometer("exterior", 21)
-    termometro_int = Termometer("interior", 17)
+    termometro_ext = Termometer("exterior", "21")
+    termometro_int = Termometer("interior", "17")
 
     read_sensors(anemometro, termometro_ext, termometro_int)
     
