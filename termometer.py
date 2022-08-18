@@ -97,7 +97,7 @@ class Termometer():
                     temp_int = "{:.2f}".format(temperature_int)
                     data_file.write(f"{self.orig_name}_temp {temp_int}\n")
                     # activar sólo para debug
-                    logger.info(f"Temperatura {self.orig_name}: %s", temp_int+"C")
+                    #logger.info(f"Temperatura {self.orig_name}: %s", temp_int+"C")
 
                     hum_int = "{:.2f}".format(humidity_int)
                     data_file.write(f"{self.orig_name}_hum {hum_int}\n")
