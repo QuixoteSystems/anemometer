@@ -43,10 +43,10 @@ class Termometer():
     def __init__(self, orig_name, pin):
         self.orig_name = orig_name
         self.sensor_name = "sensor_"+orig_name
-        #pin = "D"+pin
+        pin = "D17"
         print(pin)
         try:
-            self.sensor_name = adafruit_dht.DHT22(board.D+pin, use_pulseio=False)
+            self.sensor_name = adafruit_dht.DHT22(board.pin, use_pulseio=False)
             #temperature_int = dht22int.temperature
             #humidity_int = dht22int.humidity
             time.sleep(2)
