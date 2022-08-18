@@ -103,6 +103,7 @@ class Termometer():
                     data_file.write(f"{self.orig_name}_hum {hum_int}\n")
                     # activar sólo para debug
                     logger.info(f"Temperatura {self.orig_name}: %s", hum_int+"C")
+                    data_file.close()
                 time.sleep(2)
 
         except UnboundLocalError as dht_error:
